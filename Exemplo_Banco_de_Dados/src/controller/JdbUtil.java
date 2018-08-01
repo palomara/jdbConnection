@@ -13,10 +13,10 @@ public class JdbUtil {
 	private static Connection conn;
 	
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
+		
 		if (JdbUtil.conn != null) {
 			return JdbUtil.conn;
 		}
-		
 		else {
 			Class.forName(connectionDriverClass);
 			return DriverManager.getConnection(
@@ -25,4 +25,5 @@ public class JdbUtil {
 					JdbUtil.connectionPassword);
 		}
 	}
+
 }

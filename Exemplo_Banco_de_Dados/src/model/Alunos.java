@@ -1,11 +1,12 @@
 package model;
 
 public class Alunos {
-	
+
 	private String nome;
 	private String endereco;
 	private String bairro;
-	private int cep=0;
+	private int cep;
+	
 	
 	public String getNome() {
 		return nome;
@@ -31,6 +32,5 @@ public class Alunos {
 	public void setCep(int cep) {
 		this.cep = cep;
 	}
-	
 	
 }
