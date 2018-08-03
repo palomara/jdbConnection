@@ -12,16 +12,19 @@ public class AlunosExec {
 		
 		Alunos alunos = new Alunos();
 		try {
-			alunos.setNome("Paloma Rangel Rocha");
-			alunos.setEndereco("Av. Laranja da China, 51");
-			alunos.setBairro("Jardim das Camélias");
+			alunos.setNome("Jeferson");
+			alunos.setEndereco("Av Tal");
+			alunos.setBairro("Bairro y");
+			alunos.setCep(123145);
+			
 			
 			Connection connection = JdbUtil.getConnection();
 			AlunosJdbcDAO alunosJdbcDao = new AlunosJdbcDAO(connection);
 			
 			//alunosJdbcDao.salvar(alunos);
-			
-			alunosJdbcDao.deletar(1); 
+			//alunosJdbcDao.alterar(c);
+			//alunosJdbcDao.deletar(1); 
+			alunosJdbcDao.listar();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
