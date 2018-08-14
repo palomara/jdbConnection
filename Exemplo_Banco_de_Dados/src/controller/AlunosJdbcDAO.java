@@ -34,8 +34,8 @@ public class AlunosJdbcDAO {
 		prepareStatement.close();
 	}
 
-	public void alterar (Alunos c) throws SQLException {
-		String sql = "update alunos set nome'"+c.getNome()+"',endereco='"+c.getEndereco()+"',bairro='"+c.getBairro()+"',cep='"+c.getCep()+"';";
+	public void alterar (Alunos c, Integer id) throws SQLException {
+		String sql = "update alunos set nome where alunos.id="+id+"'"+c.getNome()+"',endereco='"+c.getEndereco()+"',bairro='"+c.getBairro()+"',cep='"+c.getCep()+"';";
 		System.out.println(sql);
 		PreparedStatement prepareStatement;
 		

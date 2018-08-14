@@ -12,9 +12,9 @@ public class AlunosExec {
 		
 		Alunos alunos = new Alunos();
 		try {
-			alunos.setNome("Jeferson");
+			alunos.setNome("Huguinho");
 			alunos.setEndereco("Av Tal");
-			alunos.setBairro("Bairro y");
+			alunos.setBairro("Bairro ABC");
 			alunos.setCep(123145);
 			
 			
@@ -22,9 +22,9 @@ public class AlunosExec {
 			AlunosJdbcDAO alunosJdbcDao = new AlunosJdbcDAO(connection);
 			
 			//alunosJdbcDao.salvar(alunos);
-			//alunosJdbcDao.alterar(c);
+			alunosJdbcDao.alterar(alunos, 3);
 			//alunosJdbcDao.deletar(1); 
-			alunosJdbcDao.listar();
+			//alunosJdbcDao.listar();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
