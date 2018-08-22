@@ -2,6 +2,7 @@ package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,11 +49,25 @@ public class UsuariosJdbcDAO {
 		}
 	}
 	
-	/*public List<Usuarios> listar() {
-		String sql = "select * from alunos";
+	public List<Usuarios> listar() {
+		String sql = "select * from usuarios";
 		System.out.println(sql);
 		
-		List<Usuarios> usuario = new ArrayList<Usuarios>();
-		
-	}*/
+		List<Usuarios> usuarios = new ArrayList<Usuarios>();
+		try {
+			PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
+			ResultSet rs = prepareStatement.executeQuery();
+			while(rs.next()) {
+			//int id = rs.getInt("id");
+			String nome = rs.getString("nome");
+			System.out.println(nome);
+			}
+			prepareStatement.close();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return usuarios;
+	}
+	
 }

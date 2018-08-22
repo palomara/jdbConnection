@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Date;
+
 
 public class Tarefas {
 	private Integer id;

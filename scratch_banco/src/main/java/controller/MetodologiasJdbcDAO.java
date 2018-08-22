@@ -2,9 +2,13 @@ package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Metodologias;
+import model.Tarefas;
 
 public class MetodologiasJdbcDAO {
 
@@ -15,15 +19,15 @@ public class MetodologiasJdbcDAO {
 	}
 	
 	public void salvar (Metodologias m) throws SQLException {
-	String sql = "inset into metodologias (metodo) values ('"+m.getMetodo()+"'";
+	String sql = "insert into metodologias (metodo) values ('"+m.getMetodo()+"')";
 	System.out.println(sql);
 	PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 	prepareStatement.executeUpdate();
 	prepareStatement.close();	
 	}
 	
-	public void deletar (int id) throws SQLException {
-		String sql = "delete from metodologias where metodologias.id"+id+"";
+	public void deletar (Metodologias metodologias) throws SQLException {
+		String sql = "delete from metodologias where metodologias.id"+metodologias+"";
 	}
 	
 	public void alterar (Metodologias m) throws SQLException {
@@ -41,4 +45,25 @@ public class MetodologiasJdbcDAO {
 			e.printStackTrace();
 		}
 	}
+	public List<Metodologias> listar() {
+		String sql = "select * from metodologias";
+		System.out.println(sql);
+	
+	List<Metodologias> metodologias = new ArrayList<Metodologias>();
+	try {
+		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
+		ResultSet rs = prepareStatement.executeQuery();
+		while(rs.next()) {
+		//int id = rs.getInt("id");
+		String metodo = rs.getString("metodo");
+		System.out.println(metodo);
+		}
+		prepareStatement.close();
+	} 
+	catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return metodologias;
+	}
 }
+
