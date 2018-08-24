@@ -18,6 +18,9 @@ import model.Usuarios;
 
 public class TelaUsuarios extends JFrame {
 	
+	JLabel lblIdUsuario = new JLabel("ID:");
+	JTextField txtIdUsuario = new JTextField();
+	
 	JTextField txtNome = new JTextField();
 	JLabel nome = new JLabel("Nome:");
 

@@ -21,6 +21,9 @@ import model.Usuarios;
 
 public class TelaTarefas extends JFrame {
 	
+	JLabel lblIdTarefa = new JLabel ("ID:");
+	JTextField txtID = new JTextField();
+	
 	JLabel lblTitulo = new JLabel("Título:");
 	JTextField txtTitulo = new JTextField();
 	

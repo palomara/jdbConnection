@@ -22,6 +22,8 @@ import javax.swing.JTextField;
 
 import controller.JdbUtil;
 import controller.UsuariosJdbcDAO;
+import model.TarefaParticipantes;
+import model.Tarefas;
 
 public class Principal extends JFrame {
 
@@ -39,17 +41,19 @@ public class Principal extends JFrame {
 	JMenuItem cadMetodologia;
 	JMenuItem cadInfluencia;
 	
-	JLabel lblID = new JLabel ("Usuário:");
+	JLabel lblID = new JLabel ("ID:");
 	JLabel lblTitulo = new JLabel ("Tarefa:");
 	
 	JTextField txbID = new JTextField();
 	JTextField txbTitulo = new JTextField();
 	
+	JLabel lblPesquisa = new JLabel();
+	JTextField txtPesquisa = new JTextField();
+	
 	JButton btnPesquisar = new JButton ("Pesquisar");
+	JButton btnSalvar = new JButton ("Salvar");
 	
-	
-	
-	
+
 	
 	public Principal () {
 		
@@ -127,34 +131,44 @@ public class Principal extends JFrame {
 		lblTitulo.setBounds(10, 40, 80, 80);
 		txbTitulo.setBounds(70, 70, 100, 20);
 		
+		paine.add(btnSalvar);
+		btnSalvar.setBounds(30, 110, 120, 40);
+		
 		paine.add(btnPesquisar);
-		btnPesquisar.setBounds(30, 110, 120, 40);
+		btnPesquisar.setBounds(80, 210, 120, 40);
 		
-		
-		btnPesquisar.addActionListener(new ActionListener() {
+		btnSalvar.addActionListener(new ActionListener() {
+
 			@Override
 			
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
+					
+					TarefaParticipantes TP = new TarefaParticipantes();
+					
+					
 					Connection connection = JdbUtil.getConnection();
 					UsuariosJdbcDAO usuariosJdbcDAO = new UsuariosJdbcDAO(connection);
 					
 					/*if(selectUsuarios()==true && selectTarefas()==true ) {
-						String sql = "select * from tarefaParticipantes";
+						String sql = "insert into tarefaparticipantes (id) values('')";
 						System.out.print(sql);
 						PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 						prepareStatement.executeUpdate();
 						prepareStatement.close();
 					}*/
+					
+					if (selectUsuarios()==true && selectTarefas()==true) {
+						
+						String sql = "inset into tarefaparticipantes (id, idUsuario, idTarefa) values ('"+getID+"', '"+IdUsuario+"', '"+IdTarefa+"')";
+					}
 				}
 				
 				catch(Exception v){
 				     v.printStackTrace();     
-				     }
-			}
-			
-		
+				     }	
+			}		
 		});
 		
 		
@@ -162,5 +176,6 @@ public class Principal extends JFrame {
 		this.setSize(600, 400);
 		this.setLayout(null);
 		this.setResizable(true);
+		dispose();
 	}
 }

@@ -50,7 +50,7 @@ public class UsuariosJdbcDAO {
 	}
 	
 	public void selectUsuarios (Usuarios idU) throws SQLException {
-		String sql = "select * from alunos'"+idU.getNome()+"',endereco='"+idU.getEmail()+"',sexo='"+idU.getSexo()+"';";
+		String sql = "select * from usuarios'"+idU.getNome()+"',endereco='"+idU.getEmail()+"',sexo='"+idU.getSexo()+"';";
 		System.out.println(sql);
 		PreparedStatement prepareStatement;
 		
