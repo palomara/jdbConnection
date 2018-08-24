@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Metodologias;
-import model.Tarefas;
+
 
 public class MetodologiasJdbcDAO {
 
@@ -28,6 +28,10 @@ public class MetodologiasJdbcDAO {
 	
 	public void deletar (Metodologias metodologias) throws SQLException {
 		String sql = "delete from metodologias where metodologias.id"+metodologias+"";
+		System.out.println(sql);
+		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
+		prepareStatement.executeUpdate();
+		prepareStatement.close();
 	}
 	
 	public void alterar (Metodologias m) throws SQLException {

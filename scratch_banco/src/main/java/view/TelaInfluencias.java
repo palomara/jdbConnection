@@ -37,7 +37,7 @@ public class TelaInfluencias extends JFrame {
 	  paine.add(lblHumor);
 	  paine.add(txtHumor);
 	  lblHumor.setBounds(10, 20,60, 20);
-	  txtHumor.setBounds(90, 20, 120, 25);
+	  txtHumor.setBounds(70, 20, 120, 25);
 
 	  paine.add(btnSalvar);
 	  btnSalvar.setBounds(50, 60, 80, 50);

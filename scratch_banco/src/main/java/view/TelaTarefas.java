@@ -8,6 +8,9 @@ import java.sql.Connection;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import controller.JdbUtil;
@@ -25,7 +28,9 @@ public class TelaTarefas extends JFrame {
 	JTextField txtPrazo = new JTextField();
 	
 	JLabel lblDescricao = new JLabel("Descrição");
-	JTextField txtDescricao = new JTextField();
+
+	JTextArea txtDescricao = new JTextArea();
+	JScrollPane spDescricao = new JScrollPane(txtDescricao);
 	
 	JButton btnSalvar = new JButton("Salvar");
 	JButton btnEditar = new JButton ("Editar");
@@ -33,7 +38,7 @@ public class TelaTarefas extends JFrame {
 
 	public TelaTarefas() {
 		
-		super("tarefas");
+		super("Tarefas");
 
 		  Container paine = this.getContentPane();
 
@@ -45,7 +50,7 @@ public class TelaTarefas extends JFrame {
 		  paine.add(lblPrazo);
 		  paine.add(txtPrazo);
 		  lblPrazo.setBounds(10, 50, 95,20);
-		  txtPrazo.setBounds(110, 50, 100, 20);
+		  txtPrazo.setBounds(60, 50, 100, 20);
 
 		  paine.add(lblDescricao);
 		  paine.add(txtDescricao);
@@ -58,7 +63,7 @@ public class TelaTarefas extends JFrame {
 		  txtDataInicio.setBounds(80, 190, 100, 20);*/
 
 		  paine.add(btnSalvar);
-		  btnSalvar.setBounds(80, 230, 80, 60);
+		  btnSalvar.setBounds(60, 230, 70, 60);
 		  btnSalvar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
@@ -80,7 +85,7 @@ public class TelaTarefas extends JFrame {
 			});
 
 		  paine.add(btnEditar);
-		  btnEditar.setBounds(180, 230, 80, 60);
+		  btnEditar.setBounds(160, 230, 70, 60);
 		  btnEditar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
@@ -102,7 +107,7 @@ public class TelaTarefas extends JFrame {
 			});
 		  
 		  paine.add(btnApagar);
-		  btnApagar.setBounds(280, 230, 80, 60);
+		  btnApagar.setBounds(260, 230, 80, 60);
 		  btnApagar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
@@ -128,7 +133,7 @@ public class TelaTarefas extends JFrame {
 
 		  this.setLayout(null);
 		  this.setVisible(true);
-		  this.setSize(300, 500);
+		  this.setSize(430, 360);
 		  this.setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 

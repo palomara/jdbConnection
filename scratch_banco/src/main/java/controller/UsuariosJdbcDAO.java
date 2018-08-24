@@ -49,6 +49,20 @@ public class UsuariosJdbcDAO {
 		}
 	}
 	
+	public void selectUsuarios (Usuarios idU) throws SQLException {
+		String sql = "select * from alunos'"+idU.getNome()+"',endereco='"+idU.getEmail()+"',sexo='"+idU.getSexo()+"';";
+		System.out.println(sql);
+		PreparedStatement prepareStatement;
+		
+		try {
+			prepareStatement = this.conn.prepareStatement(sql);
+			prepareStatement.executeUpdate();
+			prepareStatement.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	public List<Usuarios> listar() {
 		String sql = "select * from usuarios";
 		System.out.println(sql);

@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Tarefas;
-import model.Usuarios;
+
+
 
 public class TarefasJdbcDAO {
 
@@ -38,6 +39,21 @@ public class TarefasJdbcDAO {
 	public void alterar (Tarefas a) throws SQLException {
 		String sql = "update tarefas set nome'"+a.getTitulo()+"',Prazo='"+a.getPrazo()+"',Descricao='"+a.getDescricao()+"';";
 		
+		System.out.println(sql);
+		PreparedStatement prepareStatement;
+		
+		try {
+			prepareStatement = this.conn.prepareStatement(sql);
+			prepareStatement.executeUpdate();
+			prepareStatement.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void selectTarefas (Tarefas idT) throws SQLException {
+		String sql = "select * from tarefas'"+idT.getTitulo()+"',Prazo='"+idT.getPrazo()+"',Descricao='"+idT.getDescricao()+"';";
 		System.out.println(sql);
 		PreparedStatement prepareStatement;
 		

@@ -2,16 +2,16 @@ package model;
 
 public class Usuarios {
 
-	private Integer id;
+	private Integer idUsuario;
 	private String nome;
 	private String email;
 	private String sexo;
 	
-	public Integer getId() {
-		return id;
+	public Integer getidUsuario() {
+		return idUsuario;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setidUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	public String getNome() {
 		return nome;
@@ -30,6 +30,11 @@ public class Usuarios {
 	}
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+	
+	@Override
+	public String toString() {
+		return "Usuarios {" + "idUsuario=" + idUsuario + ", nome='" + nome + '\'' + '}';
 	}
 	
 	

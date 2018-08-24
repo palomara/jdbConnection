@@ -3,17 +3,17 @@ package model;
 
 
 public class Tarefas {
-	private Integer id;
+	private Integer idTarefa;
 	private String titulo;
 	private String prazo;
 	private String descricao;
 	private String datainicio;
 	private String datatermino;
-	public Integer getId() {
-		return id;
+	public Integer getidTarefa() {
+		return idTarefa;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setidTarefa(Integer idTarefa) {
+		this.idTarefa = idTarefa;
 	}
 	
 	public String getPrazo() {
@@ -48,5 +48,9 @@ public class Tarefas {
 		this.descricao = descricao;
 	}
 
-	
+@Override
+
+public String toString() {
+	return "Tarefas{" + "idTarefa" + idTarefa + ", titulo='" + titulo + '\'' + '}';
+}
 }

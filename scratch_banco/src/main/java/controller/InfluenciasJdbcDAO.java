@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Influencias;
-import model.Usuarios;
 
 public class InfluenciasJdbcDAO {
 

@@ -38,7 +38,7 @@ public class TelaMetodologias extends JFrame {
 		 paine.add(lblMetodo);
 		 paine.add(txtMetodo);
 		 lblMetodo.setBounds(10, 20,60, 20);
-		 txtMetodo.setBounds(90, 20, 120, 25);
+		 txtMetodo.setBounds(70, 20, 120, 25);
 
 		 paine.add(btnSalvar);
 		 btnSalvar.setBounds(50, 60, 80, 50);
@@ -62,7 +62,7 @@ public class TelaMetodologias extends JFrame {
 			});
 		 
 		 paine.add(btnEditar);
-		  btnEditar.setBounds(180, 230, 80, 60);
+		  btnEditar.setBounds(150, 60, 70, 50);
 		  btnEditar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
@@ -83,7 +83,7 @@ public class TelaMetodologias extends JFrame {
 			});
 		  
 		  paine.add(btnApagar);
-		  btnApagar.setBounds(280, 230, 80, 60);
+		  btnApagar.setBounds(230, 60, 80, 50);
 		  btnApagar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
@@ -106,7 +106,7 @@ public class TelaMetodologias extends JFrame {
 
 		 
 		 this.setLayout(null);
-		 this.setSize(280, 280);
+		 this.setSize(350, 180);
 		 this.setVisible(true);
 		 this.setDefaultCloseOperation(HIDE_ON_CLOSE);
 		 
