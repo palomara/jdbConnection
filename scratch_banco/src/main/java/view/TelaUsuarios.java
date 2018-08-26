@@ -30,6 +30,9 @@ public class TelaUsuarios extends JFrame {
 	JTextField txtSexo = new JTextField();
 	JLabel sexo = new JLabel("Sexo: ");
 	
+	JTextField txtIDTarefa = new JTextField ();
+	JLabel lblIDTarefa = new JLabel ("ID Tarefa:");
+	
 	/*JCheckBox cbFeminino = new JCheckBox("Feminino");
 	JCheckBox cbMasculino = new JCheckBox ("Masculino");*/
 
@@ -55,17 +58,22 @@ public class TelaUsuarios extends JFrame {
 		paine.add(nome);
 		paine.add(txtNome);
 		nome.setBounds(20, 20, 80, 30);
-		txtNome.setBounds(60, 20, 250, 30);
+		txtNome.setBounds(90, 20, 250, 30);
 
 		paine.add(email);
 		paine.add(txtEmail);
 		email.setBounds(20, 65, 80, 30);
-		txtEmail.setBounds(60, 65, 250, 30);
+		txtEmail.setBounds(90, 65, 250, 30);
 		
 		paine.add(sexo);
 		paine.add(txtSexo);
 		sexo.setBounds(20, 110, 80, 30);
-		txtSexo.setBounds(60, 105, 250, 30);
+		txtSexo.setBounds(90, 110, 250, 30);
+		
+		paine.add(txtIDTarefa);
+		paine.add(lblIDTarefa);
+		lblIDTarefa.setBounds(20, 155, 80, 30);
+		txtIDTarefa.setBounds(90, 155, 90, 30);
 
 /*		paine.add(sexo);
 		sexo.setBounds(10, 85, 70, 30);
@@ -77,7 +85,7 @@ public class TelaUsuarios extends JFrame {
 		rdbsexo[1].setBounds(90, 105, 225, 30);*/
 
 		paine.add(btnSalvar);
-		btnSalvar.setBounds(125, 190, 100, 65);
+		btnSalvar.setBounds(125, 230, 100, 65);
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -85,6 +93,7 @@ public class TelaUsuarios extends JFrame {
 					usuarios.setNome(txtNome.getText());
 					usuarios.setEmail(txtEmail.getText());
 					usuarios.setSexo(txtSexo.getText());
+					//usuarios.setidTarefa(Integer.parseInt(txtIDTarefa.getText()));
 
 					Connection connection = JdbUtil.getConnection();
 					UsuariosJdbcDAO usuariosJdbcDao = new UsuariosJdbcDAO(connection);
@@ -101,7 +110,7 @@ public class TelaUsuarios extends JFrame {
 
 		this.setLayout(null);
 		this.setVisible(true);
-		this.setSize(350, 320);
+		this.setSize(400, 360);
 		this.setDefaultCloseOperation(HIDE_ON_CLOSE);
 		
 

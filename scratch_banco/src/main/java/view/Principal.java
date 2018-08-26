@@ -35,11 +35,20 @@ public class Principal extends JFrame {
 	JMenu menuTarefas = new JMenu ("Tarefas");
 	JMenu menuMetodologias = new JMenu ("Metodologias");
 	JMenu menuInfluencias = new JMenu ("Influencias");
-	
+
 	JMenuItem cadUsuario;
 	JMenuItem cadTarefa;
 	JMenuItem cadMetodologia;
 	JMenuItem cadInfluencia;
+	JMenuItem editUsuario;
+	JMenuItem editTarefa;
+	JMenuItem editInfluencia;
+	JMenuItem editMetodologia;
+	JMenuItem deleteUsuario;
+	JMenuItem deleteTarefa;
+	JMenuItem deleteMetodologia;
+	JMenuItem deleteInfluencia;
+	
 	
 	JLabel lblID = new JLabel ("ID:");
 	JLabel lblTitulo = new JLabel ("Tarefa:");
@@ -93,6 +102,8 @@ public class Principal extends JFrame {
 		barraMenu.add(menuMetodologias);
 		barraMenu.add(menuInfluencias);
 		
+		
+		
 		menuUsuarios.add(cadUsuario = new JMenuItem ("Cadastrar"));
 		cadUsuario.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
@@ -100,24 +111,80 @@ public class Principal extends JFrame {
 			}
 		});
 		
-		menuTarefas.add(cadTarefa = new JMenuItem ("Adicionar tarefa"));
+		menuTarefas.add(cadTarefa = new JMenuItem ("Adicionar"));
 		cadTarefa.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				TelaTarefas app = new TelaTarefas();
 			}
 		});
 		
-		menuMetodologias.add(cadMetodologia = new JMenuItem ("Adicionar metodologia"));
+		menuMetodologias.add(cadMetodologia = new JMenuItem ("Adicionar"));
 		cadMetodologia.addActionListener (new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 				TelaMetodologias app = new TelaMetodologias();
 			}
 		});
 		
-		menuInfluencias.add(cadInfluencia = new JMenuItem ("Adicionar influências"));
+		menuInfluencias.add(cadInfluencia = new JMenuItem ("Adicionar"));
 		cadInfluencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInfluencias app = new TelaInfluencias();
+			}
+		});
+		
+		menuUsuarios.add(editUsuario = new JMenuItem ("Editar dados"));
+		editUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e) {
+				TelaEdicaoUsuario editarUsuario = new TelaEdicaoUsuario();
+			}
+		});
+		
+		menuTarefas.add(editTarefa = new JMenuItem ("Editar dados"));
+		editTarefa.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e) {
+				TelaEdicaoTarefa editarTarefa = new TelaEdicaoTarefa();
+			}
+		});
+		
+		menuMetodologias.add(editMetodologia = new JMenuItem ("Editar dados"));
+		editMetodologia.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e) {
+			
+			}
+		});
+		
+		menuInfluencias.add(editInfluencia = new JMenuItem ("Editar dados"));
+		editInfluencia.addActionListener(new ActionListener () {
+			public void actionPerformed (ActionEvent e) {
+				
+			}
+		});
+		
+		menuUsuarios.add(deleteUsuario = new JMenuItem ("Deletar"));
+		deleteUsuario.addActionListener(new ActionListener () {
+			public void actionPerformed (ActionEvent e) {
+				
+			}
+		});
+		
+		menuTarefas.add(deleteTarefa = new JMenuItem ("Deletar"));
+		deleteTarefa.addActionListener(new ActionListener () {
+			public void actionPerformed (ActionEvent e) {
+				
+			}
+		});
+		
+		menuMetodologias.add(deleteMetodologia = new JMenuItem ("Deletar"));
+		deleteMetodologia.addActionListener(new ActionListener () {
+			public void actionPerformed (ActionEvent e) {
+				
+			}
+		});
+		
+		menuInfluencias.add(deleteInfluencia = new JMenuItem ("Deletar"));
+		deleteInfluencia.addActionListener(new ActionListener () {
+			public void actionPerformed (ActionEvent e) {
+				
 			}
 		});
 		
@@ -149,20 +216,17 @@ public class Principal extends JFrame {
 					
 					
 					Connection connection = JdbUtil.getConnection();
-					UsuariosJdbcDAO usuariosJdbcDAO = new UsuariosJdbcDAO(connection);
+					UsuariosJdbcDAO usuariosJdbcDAselectTarefasO = new UsuariosJdbcDAO(connection);
 					
 					/*if(selectUsuarios()==true && selectTarefas()==true ) {
-						String sql = "insert into tarefaparticipantes (id) values('')";
+						String sql = "insert into tarefaparticipantes (idUsuario, idTarefa) values ()";
 						System.out.print(sql);
 						PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 						prepareStatement.executeUpdate();
 						prepareStatement.close();
 					}*/
 					
-					if (selectUsuarios()==true && selectTarefas()==true) {
-						
-						String sql = "inset into tarefaparticipantes (id, idUsuario, idTarefa) values ('"+getID+"', '"+IdUsuario+"', '"+IdTarefa+"')";
-					}
+					dispose();
 				}
 				
 				catch(Exception v){
@@ -176,6 +240,6 @@ public class Principal extends JFrame {
 		this.setSize(600, 400);
 		this.setLayout(null);
 		this.setResizable(true);
-		dispose();
+		
 	}
 }

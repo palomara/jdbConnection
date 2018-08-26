@@ -7,6 +7,9 @@ public class Usuarios {
 	private String email;
 	private String sexo;
 	
+
+	
+	
 	public Integer getidUsuario() {
 		return idUsuario;
 	}

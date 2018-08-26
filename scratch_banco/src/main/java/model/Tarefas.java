@@ -9,6 +9,7 @@ public class Tarefas {
 	private String descricao;
 	private String datainicio;
 	private String datatermino;
+	
 	public Integer getidTarefa() {
 		return idTarefa;
 	}

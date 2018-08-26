@@ -53,7 +53,7 @@ public class TarefasJdbcDAO {
 	}
 	
 	public void selectTarefas (Tarefas idT) throws SQLException {
-		String sql = "select * from tarefas'"+idT.getTitulo()+"',Prazo='"+idT.getPrazo()+"',Descricao='"+idT.getDescricao()+"';";
+		String sql = "select * from tarefas'"+idT.getidTarefa()+"';";
 		System.out.println(sql);
 		PreparedStatement prepareStatement;
 		
