@@ -107,6 +107,7 @@ public class TelaInfluencias extends JFrame {
 	  this.setSize(280, 200);
 	  this.setVisible(true);
 	  this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+	  this.setLocationRelativeTo(null);
 	  
 	  }
 

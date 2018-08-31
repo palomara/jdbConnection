@@ -34,7 +34,7 @@ public class InfluenciasJdbcDAO {
 	}
 	
 	public void alterar (Influencias i) throws SQLException {
-	String sql = "update influencias set humor'"+i.getHumor()+"';";
+	String sql = "update influencias set humor='"+i.getHumor()+"';";
 	
 	System.out.println(sql);
 	PreparedStatement prepareStatement;

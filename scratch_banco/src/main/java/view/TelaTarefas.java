@@ -30,7 +30,7 @@ public class TelaTarefas extends JFrame {
 	JLabel lblPrazo = new JLabel("Prazo:");
 	JTextField txtPrazo = new JTextField();
 	
-	JLabel lblDescricao = new JLabel("Descrição");
+	JLabel lblDescricao = new JLabel("Descrição:");
 
 	JTextArea txtDescricao = new JTextArea();
 	JScrollPane spDescricao = new JScrollPane(txtDescricao);
@@ -68,6 +68,8 @@ public class TelaTarefas extends JFrame {
 		  paine.add(btnSalvar);
 		  btnSalvar.setBounds(60, 230, 70, 60);
 		  btnSalvar.addActionListener(new ActionListener() {
+			  
+			  @Override
 				public void actionPerformed(ActionEvent e) {
 					try {
 						Tarefas t = new Tarefas();
@@ -138,6 +140,7 @@ public class TelaTarefas extends JFrame {
 		  this.setVisible(true);
 		  this.setSize(430, 360);
 		  this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+		  this.setLocationRelativeTo(null);
 	}
 
 }

@@ -2,7 +2,7 @@ package model;
 
 public class Usuarios {
 
-	private Integer idUsuario;
+	private int idUsuario;
 	private String nome;
 	private String email;
 	private String sexo;

@@ -29,7 +29,7 @@ public class TarefasJdbcDAO {
 	
 	public void deletar (Tarefas tarefas) throws SQLException {
 		
-		String sql = "delete from tarefas where tarefas.id="+tarefas+"";
+		String sql = "delete from tarefas where tarefas.idTarefa="+tarefas+"";
 		System.out.println(sql);
 		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 		prepareStatement.executeUpdate();
@@ -37,7 +37,7 @@ public class TarefasJdbcDAO {
 	}
 	
 	public void alterar (Tarefas a) throws SQLException {
-		String sql = "update tarefas set nome'"+a.getTitulo()+"',Prazo='"+a.getPrazo()+"',Descricao='"+a.getDescricao()+"';";
+		String sql = "update tarefas set nome='"+a.getTitulo()+"',Prazo='"+a.getPrazo()+"',Descricao='"+a.getDescricao()+"';";
 		
 		System.out.println(sql);
 		PreparedStatement prepareStatement;

@@ -84,6 +84,7 @@ public class Principal extends JFrame {
 				if (img != null) {
 
 					g.drawImage(img, 0, 0, 600, 396, this);
+		
 				}
 			}
 				catch(Exception e){
@@ -163,7 +164,7 @@ public class Principal extends JFrame {
 		menuUsuarios.add(deleteUsuario = new JMenuItem ("Deletar"));
 		deleteUsuario.addActionListener(new ActionListener () {
 			public void actionPerformed (ActionEvent e) {
-				
+				TelaDeletarUsuario deletarUsuario = new TelaDeletarUsuario();
 			}
 		});
 		
@@ -188,7 +189,7 @@ public class Principal extends JFrame {
 			}
 		});
 		
-		paine.add(lblID);
+		/*paine.add(lblID);
 		paine.add(txbID);
 		lblID.setBounds(10, 20, 80, 80);
 		txbID.setBounds(70, 50, 85, 20);
@@ -199,12 +200,12 @@ public class Principal extends JFrame {
 		txbTitulo.setBounds(70, 70, 100, 20);
 		
 		paine.add(btnSalvar);
-		btnSalvar.setBounds(30, 110, 120, 40);
+		btnSalvar.setBounds(30, 110, 120, 40);*/
 		
 		paine.add(btnPesquisar);
-		btnPesquisar.setBounds(80, 210, 120, 40);
+		btnPesquisar.setBounds(30, 110, 120, 40);
 		
-		btnSalvar.addActionListener(new ActionListener() {
+		btnPesquisar.addActionListener(new ActionListener() {
 
 			@Override
 			
@@ -240,6 +241,7 @@ public class Principal extends JFrame {
 		this.setSize(600, 400);
 		this.setLayout(null);
 		this.setResizable(true);
+		this.setLocationRelativeTo(null);
 		
 	}
 }

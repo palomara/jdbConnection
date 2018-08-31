@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,7 +16,7 @@ import controller.JdbUtil;
 import controller.UsuariosJdbcDAO;
 import model.Usuarios;
 
-public class TelaEdicaoUsuario extends JFrame {
+public class TelaDeletarUsuario extends JFrame {
 	
 	JTextField txtID = new JTextField();
 	JLabel lblID = new JLabel("ID: ");
@@ -31,16 +30,18 @@ public class TelaEdicaoUsuario extends JFrame {
 	JTextField txtSexo = new JTextField();
 	JLabel sexo = new JLabel("Sexo: ");
 	
+	JTextField txtIDTarefa = new JTextField ();
+	JLabel lblIDTarefa = new JLabel ("ID Tarefa:");
 	
-	JButton btnEditar = new JButton ("Editar");
+	JButton btnApagar = new JButton ("Apagar");
 	
-	public TelaEdicaoUsuario() {
+	public TelaDeletarUsuario () {
 		
-		super("Edição");
+		super("Apagar");
 
 		Container paine = this.getContentPane();
 
-		paine.add(lblNome);
+		/*paine.add(lblNome);
 		paine.add(txtNome);	
 		lblNome.setBounds(10, 15, 45, 30);
 		txtNome.setBounds(90, 15, 225, 30);
@@ -53,27 +54,32 @@ public class TelaEdicaoUsuario extends JFrame {
 		paine.add(sexo);
 		paine.add(txtSexo);
 		sexo.setBounds(10,85,70,30);
-		txtSexo.setBounds(90, 85, 225, 30);
+		txtSexo.setBounds(90, 85, 225, 30);*/
 
+		paine.add(lblID);
+		paine.add(txtID);	
+		lblID.setBounds(10, 15, 45, 30);
+		txtID.setBounds(50, 15, 225, 30);
 		
-		paine.add(btnEditar);
-		btnEditar.setBounds(95, 180, 130, 30);
-		btnEditar.addActionListener(new ActionListener() {
+		paine.add(btnApagar);
+		btnApagar.setBounds(95, 80, 130, 30);
+		
+		btnApagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Usuarios c = new Usuarios();
-					c.setNome(txtNome.getText());
-					c.setEmail(txtEmail.getText());
-					c.setSexo(txtSexo.getText());
-
+					Usuarios d = new Usuarios();
+					d.setNome(txtNome.getText());
+					d.setEmail(txtEmail.getText());
+					d.setSexo(txtSexo.getText());
+					int id = Integer.parseInt(txtID.getText());
 
 
 					Connection connection = JdbUtil.getConnection();
 					UsuariosJdbcDAO usuariosJdbcDao = new UsuariosJdbcDAO(connection);
 				
 
-					usuariosJdbcDao.alterar(c);
-					JOptionPane.showMessageDialog(new JFrame(), "Edição efetuada");
+					usuariosJdbcDao.deletar(id);
+					JOptionPane.showMessageDialog(new JFrame(), "Deletado");
 					
 					for (int i=0; i < getContentPane().getComponentCount(); i++) {
 						Component gc = getContentPane().getComponent(i);
@@ -86,19 +92,18 @@ public class TelaEdicaoUsuario extends JFrame {
 
 				} catch (Exception ex) {
 					ex.printStackTrace();
-					JOptionPane.showMessageDialog(new JFrame(), "Edição não efetuada");
+					JOptionPane.showMessageDialog(new JFrame(), "Não foi possível deletar");
 				}
 
 			}
 		});
-
 		
 		this.setLayout(null);
 		this.setResizable(false);
 		this.setVisible(true);
-		this.setSize(340, 250);
+		this.setSize(340, 200);
 		this.setDefaultCloseOperation(HIDE_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		
 	}
+
 }

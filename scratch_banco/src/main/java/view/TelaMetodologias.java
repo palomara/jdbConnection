@@ -109,6 +109,7 @@ public class TelaMetodologias extends JFrame {
 		 this.setSize(350, 180);
 		 this.setVisible(true);
 		 this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+		 this.setLocationRelativeTo(null);
 		 
 		}
 

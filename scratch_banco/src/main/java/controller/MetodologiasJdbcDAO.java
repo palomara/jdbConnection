@@ -27,7 +27,7 @@ public class MetodologiasJdbcDAO {
 	}
 	
 	public void deletar (Metodologias metodologias) throws SQLException {
-		String sql = "delete from metodologias where metodologias.id"+metodologias+"";
+		String sql = "delete from metodologias where metodologias.idMetodologia"+metodologias+"";
 		System.out.println(sql);
 		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 		prepareStatement.executeUpdate();
@@ -35,7 +35,7 @@ public class MetodologiasJdbcDAO {
 	}
 	
 	public void alterar (Metodologias m) throws SQLException {
-		String sql = "update metodologias set metodo'"+m.getMetodo()+"'";
+		String sql = "update metodologias set metodo='"+m.getMetodo()+"'";
 		
 		System.out.println(sql);
 		PreparedStatement prepareStatement;

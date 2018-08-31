@@ -2,13 +2,16 @@ package model;
 
 public class Metodologias {
 
-	private Integer id;
+	private Integer idMetodologia;
 	private String metodo;
-	public Integer getId() {
-		return id;
+	
+	
+	
+	public Integer getIdMetodologia() {
+		return idMetodologia;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdMetodologia(Integer idMetodologia) {
+		this.idMetodologia = idMetodologia;
 	}
 	public String getMetodo() {
 		return metodo;

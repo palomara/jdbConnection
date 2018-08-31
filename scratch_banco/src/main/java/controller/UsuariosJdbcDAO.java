@@ -26,8 +26,8 @@ public class UsuariosJdbcDAO {
 		prepareStatement.close();
 	}
 	
-	public void deletar (int id) throws SQLException {
-		String sql = "delete from usuario where alunos.id="+id+"";
+	public void deletar (int d) throws SQLException {
+		String sql = "delete from usuarios where usuarios.idUsuario="+d+"";
 		System.out.println(sql);
 		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 		prepareStatement.executeUpdate();
@@ -35,7 +35,7 @@ public class UsuariosJdbcDAO {
 	}
 	
 	public void alterar (Usuarios c) throws SQLException {
-		String sql = "update alunos set nome'"+c.getNome()+"',endereco='"+c.getEmail()+"',sexo='"+c.getSexo()+"';";
+		String sql = "update usuarios set nome='"+c.getNome()+"',email='"+c.getEmail()+"',sexo='"+c.getSexo()+"'";
 		System.out.println(sql);
 		PreparedStatement prepareStatement;
 		

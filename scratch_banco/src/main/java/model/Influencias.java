@@ -2,13 +2,15 @@ package model;
 
 public class Influencias {
 
-	private Integer id;
+	private Integer idInfluencia;
 	private String humor;
-	public Integer getId() {
-		return id;
+	
+	
+	public Integer getIdInfluencia() {
+		return idInfluencia;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdInfluencia(Integer idInfluencia) {
+		this.idInfluencia = idInfluencia;
 	}
 	public String getHumor() {
 		return humor;

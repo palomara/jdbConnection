@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import controller.JdbUtil;
@@ -30,9 +32,7 @@ public class TelaUsuarios extends JFrame {
 	JTextField txtSexo = new JTextField();
 	JLabel sexo = new JLabel("Sexo: ");
 	
-	JTextField txtIDTarefa = new JTextField ();
-	JLabel lblIDTarefa = new JLabel ("ID Tarefa:");
-	
+
 	/*JCheckBox cbFeminino = new JCheckBox("Feminino");
 	JCheckBox cbMasculino = new JCheckBox ("Masculino");*/
 
@@ -56,24 +56,26 @@ public class TelaUsuarios extends JFrame {
 		Container paine = this.getContentPane();
 
 		paine.add(nome);
-		paine.add(txtNome);
-		nome.setBounds(20, 20, 80, 30);
-		txtNome.setBounds(90, 20, 250, 30);
+		paine.add(txtNome);	
+		nome.setBounds(10, 15, 45, 30);
+		txtNome.setBounds(90, 15, 225, 30);
 
 		paine.add(email);
 		paine.add(txtEmail);
-		email.setBounds(20, 65, 80, 30);
-		txtEmail.setBounds(90, 65, 250, 30);
-		
+		email.setBounds(10,50,70,30);
+		txtEmail.setBounds(90, 50, 225, 30);
+
 		paine.add(sexo);
 		paine.add(txtSexo);
-		sexo.setBounds(20, 110, 80, 30);
-		txtSexo.setBounds(90, 110, 250, 30);
+		sexo.setBounds(10,85,70,30);
+		txtSexo.setBounds(90, 85, 225, 30);
+
+		/*paine.add(lblIDTarefa);
+		paine.add(txtIDTarefa);	
+		lblIDTarefa.setBounds(10, 120, 70, 30);
+		txtIDTarefa.setBounds(90, 120, 225, 30);	*/
+
 		
-		paine.add(txtIDTarefa);
-		paine.add(lblIDTarefa);
-		lblIDTarefa.setBounds(20, 155, 80, 30);
-		txtIDTarefa.setBounds(90, 155, 90, 30);
 
 /*		paine.add(sexo);
 		sexo.setBounds(10, 85, 70, 30);
@@ -85,7 +87,7 @@ public class TelaUsuarios extends JFrame {
 		rdbsexo[1].setBounds(90, 105, 225, 30);*/
 
 		paine.add(btnSalvar);
-		btnSalvar.setBounds(125, 230, 100, 65);
+		btnSalvar.setBounds(95, 180, 130, 30);
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -100,18 +102,32 @@ public class TelaUsuarios extends JFrame {
 				
 
 					usuariosJdbcDao.salvar(usuarios);
+					JOptionPane.showMessageDialog(new JFrame(), "Cadastro efetuado");
+					
+					/*for (int i=0; i < getContentPane().getComponentCount(); i++) {
+						Component c = getContentPane().getComponent(i);
+						
+						if(c instanceof JTextField) {
+							JTextField jtfield = (JTextField) c;
+							jtfield.setText("");
+						}	*/
+					}
 
-				} catch (Exception ex) {
+				 catch (Exception ex) {
 					ex.printStackTrace();
+					JOptionPane.showMessageDialog(new JFrame(), "Cadastro não efetuado");
 				}
 
 			}
 		});
 
 		this.setLayout(null);
+		this.setResizable(false);
 		this.setVisible(true);
-		this.setSize(400, 360);
+		this.setSize(340, 250);
 		this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		
 		
 
 	}
